@@ -1,6 +1,7 @@
-### Team project for creating a marketplace backend web application. Still under development.
+# Welcome to our Marketplace Backend Web Application Project!
+Our team is creating a marketplace backend web application as part of our learning journey. Currently in active development, we're eager to share our progress and features with you.
 
-# Implemented Features:
+## Implemented Features:
 
 
 - **User Registration with Email Verification:** Users can sign up using their username and verify their account via email.
@@ -29,7 +30,7 @@
 
 
 
-# To run the application, you need to set environment variables:
+## To run the application, you need to set environment variables:
 for MySQL database:
 ```
 DB_PASSWORD
