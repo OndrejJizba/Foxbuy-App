@@ -1,4 +1,4 @@
-### Team project for creating a marketplace backend web application. Still uuder development.
+### Team project for creating a marketplace backend web application. Still under development.
 
 # Implemented Features:
 
