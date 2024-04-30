@@ -49,3 +49,6 @@ JWT_SECRET_KEY
 
 STRIPE_APIKEY
 ```
+
+
+For more information do not hesitate to contact me at ondrej.jizba@gmail.com.
