@@ -12,20 +12,16 @@ import java.time.LocalTime;
 public class ScheduledConfig {
     private static final String INVOICE_FOLDER_PATH = "resources/generated-PDF";
 
-    @Scheduled(cron = "0 00 18 * * *") //every day at six o clock run this
+    @Scheduled(cron = "0 00 18 * * *")
     public void deleteInvoices() {
         File folder = new File(INVOICE_FOLDER_PATH);
-      
-        // Get all files in the directory
         File[] files = folder.listFiles((dir, name) -> name.endsWith(".pdf"));
 
-        // Check if any files exist
         if (files == null || files.length == 0) {
             System.out.println("No PDF files found in the directory. " + LocalTime.now());
-            return; // Exit method if no PDF files are found
+            return;
         }
 
-        // Delete all PDF files
         for (File file : files) {
             if (file.delete()) {
                 System.out.println("Deleted file: " + file.getName());

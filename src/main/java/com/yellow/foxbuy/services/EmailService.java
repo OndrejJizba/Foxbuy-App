@@ -8,14 +8,9 @@ import java.util.List;
 
 public interface EmailService {
     void sendSimpleMessage(String to, String subject, String text) throws MessagingException;
-
     void sendVerificationEmail(User user) throws MessagingException;
-
     void sendEmailWithAttachment(String to, String attachmentPath) throws MessagingException;
     void sendRatingNotification(User user) throws MessagingException;
-
-
     void sendMessageToSeller(Authentication authentication, Long id, String message) throws MessagingException;
-
     void sendEmailWithWatchdogToUser(List<String> userEmails) throws MessagingException;
 }

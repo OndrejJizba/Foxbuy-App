@@ -52,7 +52,7 @@ public class GeneratePdfUtil {
             PdfDocument pdfDocument = new PdfDocument(pdfWriter);
             Document document = new Document(pdfDocument, PageSize.A4);
 
-            // Define font and style)
+
             PdfFont font = PdfFontFactory.createFont();
             Style style = new Style()
                     .setFont(font)
@@ -66,7 +66,7 @@ public class GeneratePdfUtil {
                     .setFontColor(ColorConstants.WHITE)
                     .setBackgroundColor(ColorConstants.DARK_GRAY);
 
-            // Title
+
             Paragraph title = new Paragraph()
                     .add(new Text("I  N  V  O  I  C  E ").addStyle(style))
                     .setTextAlignment(TextAlignment.RIGHT)
@@ -81,7 +81,7 @@ public class GeneratePdfUtil {
                     .setMarginRight(10);
             document.add(number);
 
-            //Image
+
             String imagePath = "src/main/resources/fox.png";
             ImageData imageData = ImageDataFactory.create(imagePath);
             Image image = new Image(imageData);
@@ -92,14 +92,14 @@ public class GeneratePdfUtil {
             image.setFixedPosition(50, 700);
             document.add(image);
 
-            // Empty line
+
             Paragraph emptyLine = new Paragraph("\n");
 
             document.add(emptyLine);
             document.add(emptyLine);
             document.add(emptyLine);
 
-            // Company address
+
             Paragraph companyInfo = new Paragraph()
                     .add("Company: \nFOX BUY YELLOW team company CZ s.r.o.\nAddress: Vaclavske namesti 837/11, Nove Mesto, 110 00 Praha\nICO: 07513666")
                     .setTextAlignment(TextAlignment.LEFT)
@@ -118,7 +118,7 @@ public class GeneratePdfUtil {
             document.add(emptyLine);
 
 
-            // VIP benefits
+
             Paragraph vipBenefits = new Paragraph()
                     .add("Payment for VIP User account for one year.................................................20 USD")
                     .setFontSize(14)
@@ -131,7 +131,7 @@ public class GeneratePdfUtil {
             document.add(emptyLine);
             document.add(emptyLine);
 
-            // Total payment information
+
             Paragraph totalPayment = new Paragraph()
                     .add("Total Payment: $20")
                     .setFontSize(20)
@@ -140,7 +140,7 @@ public class GeneratePdfUtil {
                     .setMarginRight(10);
             document.add(totalPayment);
 
-            // Close the document
+
             document.close();
 
         } catch (IOException e) {
@@ -149,11 +149,9 @@ public class GeneratePdfUtil {
         return invoiceNumber;
     }
 
-
-    // Helper method to generate invoice number (placeholder implementation)
     private String generateInvoiceNumber() {
         String invoiceIdentifier = String.format("%03d", invoiceCounter);
-        invoiceCounter++; // Increment the counter for the next invoice
+        invoiceCounter++;
         return "INV-" + formattedDate + "-" + invoiceIdentifier;
     }
 }

@@ -1,12 +1,10 @@
 package com.yellow.foxbuy.models.DTOs;
 
-import com.yellow.foxbuy.models.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter

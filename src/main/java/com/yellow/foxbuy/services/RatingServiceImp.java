@@ -5,7 +5,6 @@ import com.yellow.foxbuy.models.Rating;
 import com.yellow.foxbuy.models.User;
 import com.yellow.foxbuy.repositories.RatingRepository;
 import jakarta.mail.MessagingException;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

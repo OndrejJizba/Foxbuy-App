@@ -46,7 +46,7 @@ public class AdManagementServiceImp implements AdManagementService {
             logService.addLog("POST /advertisement", "ERROR", adDTO.toString());
             return ResponseEntity.status(400).body(result);
         }
-        // Check if the ad already exists for the user
+
         boolean adExists = adService.checkIfAdExists(user, adDTO);
         if (adExists) {
             result.put("error", "This advertisement already exists for this user.");
@@ -54,7 +54,7 @@ public class AdManagementServiceImp implements AdManagementService {
             return ResponseEntity.status(400).body(result);
         }
 
-        // Find the category in repository
+
         Category category = categoryService.findCategoryById(adDTO.getCategoryID());
 
         if (category == null) {
@@ -62,12 +62,12 @@ public class AdManagementServiceImp implements AdManagementService {
             logService.addLog("POST /advertisement", "ERROR", adDTO.toString());
             return ResponseEntity.status(400).body(result);
         }
-        // Create Ad from AdDTO
+
         Ad ad = new Ad(adDTO, user, category);
-        // Check if there is watchdog for this ad
+
         watchdogService.findMatchingAdsAndNotifyUsers(adDTO, watchdogDTO);
 
-        // Save ad to repository
+
         try {
             adService.saveAd(ad);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class AdManagementServiceImp implements AdManagementService {
             return ResponseEntity.status(400).body(result);
         }
 
-        // Return response with ad id
+
         AdResponseDTO response = new AdResponseDTO(
                 ad.getId(),
                 adDTO.getTitle(),
@@ -119,14 +119,14 @@ public class AdManagementServiceImp implements AdManagementService {
         }
 
         Ad ad = new Ad(adDTO, user, category);
-        ad.setId(id); // Set the ID of the existing advertisement
+        ad.setId(id);
 
-        // Check if there is watchdog for this ad
+
         watchdogService.findMatchingAdsAndNotifyUsers(adDTO, watchdogDTO);
 
         try {
             adService.saveAd(ad);
-            // Return response with ad id
+
             AdResponseDTO response = new AdResponseDTO(
                     id,
                     adDTO.getTitle(),

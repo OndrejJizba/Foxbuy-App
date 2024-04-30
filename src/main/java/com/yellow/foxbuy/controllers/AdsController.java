@@ -170,31 +170,26 @@ public class AdsController {
             logService.addLog("POST /advertisement/watch", "ERROR", watchdogDTO.toString());
             return ResponseEntity.status(400).body(result);
         }
-        //set the role VIP
         boolean isVipUser = hasRole(authentication, "ROLE_VIP");
         if (!isVipUser) {
             result.put("error", "User is not VIP and cannot have WATCHDOG.");
             logService.addLog("POST /advertisement/watch", "ERROR", watchdogDTO.toString());
             return ResponseEntity.status(400).body(result);
         }
-        // Check if watchdog already exists for the user
         boolean watchdogExists = watchDogService.checkIfWatchdogExists(user, watchdogDTO);
         if (watchdogExists) {
             result.put("error", "This watchdog already exists for this user.");
             logService.addLog("POST /advertisement/watch", "ERROR", watchdogDTO.toString());
             return ResponseEntity.status(400).body(result);
         }
-        //calling the method which will create watchdog
         watchDogService.setupWatchdog(watchdogDTO, user, authentication);
 
         logService.addLog("POST /advertisement/watch", "INFO", watchdogDTO.toString());
 
-        //if the keyword is empty
         String keyword = watchdogDTO.getKeyword();
         if (keyword == null || keyword.isEmpty()) {
             result.put("success", "Watchdog has been set up successfully");
 
-            //if keyword is fill, show the name of the watchdog
         } else {
             result.put("success", "Watchdog '" + keyword + "' has been set up successfully");
         }
@@ -218,7 +213,7 @@ public class AdsController {
             response.put("error", "You're attempting to write a message to an advertisement that does not exist.");
             return ResponseEntity.status(400).body(response);
         }
-        JsonObject jsonObject = new Gson().fromJson(requestBody, JsonObject.class);//ChatGPT :-)
+        JsonObject jsonObject = new Gson().fromJson(requestBody, JsonObject.class);
         if (!jsonObject.has("message") || jsonObject.get("message").getAsString().isEmpty()) {
             response.put("error", "Message should have at least 1 letter.");
             return ResponseEntity.status(400).body(response);

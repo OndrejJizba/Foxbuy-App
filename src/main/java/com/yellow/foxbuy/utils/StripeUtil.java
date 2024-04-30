@@ -46,7 +46,7 @@ public class StripeUtil {
         PaymentIntent paymentIntent = PaymentIntent.create(params);
 
         PaymentIntentConfirmParams params2 = PaymentIntentConfirmParams.builder()
-                .setPaymentMethod(paymentMethod)//test payment method is "pm_card_visa"
+                .setPaymentMethod(paymentMethod)
                 .setReturnUrl("https://www.example.com")
                 .build();
         return paymentIntent.confirm(params2);

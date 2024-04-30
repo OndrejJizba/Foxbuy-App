@@ -97,11 +97,6 @@ public class AdServiceImp implements AdService {
     }
 
     @Override
-    public boolean isHidden(Ad ad) {
-        return ad.isHidden();
-    }
-
-    @Override
     public List<AdResponseDTO> searchAds(String search) {
         String[] searchWords = search.split("\\s+");
         List<Ad> result = new ArrayList<>();
@@ -117,24 +112,8 @@ public class AdServiceImp implements AdService {
     }
 
     @Override
-    public List<Ad> findAllByUserID(UUID uuid) {
-        return null;
-    }
-
-    @Override
-    public List<AdResponseDTO> findAllByCategoryId(Long id) {
-        List<Ad> adList = adRepository.findAllByCategoryIdAndHiddenIsFalse(id);
-        List<AdResponseDTO> userAds = new ArrayList<>();
-        for (Ad ad : adList) {
-            userAds.add(loadAdResponseDTO(ad));
-        }
-        return userAds;
-    }
-
-    @Override
     public List<AdResponseDTO> listAdsByPageAndCategory(Integer page, Long id) {
         int pageSize = 10;
-        int offset = (page - 1) * pageSize;
         List<AdResponseDTO> userAds = new ArrayList<>();
         Pageable pageable = PageRequest.of(page - 1, pageSize);
 
@@ -156,7 +135,7 @@ public class AdServiceImp implements AdService {
     @Override
     public boolean checkIfAdExists(User user, AdDTO adDTO) {
 
-        // Check if a similar advertisement already exists for the user
+
         Optional<Ad> existingAd = adRepository.findByUserAndTitleAndDescriptionAndPriceAndZipcode(
                 user,
                 adDTO.getTitle(),

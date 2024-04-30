@@ -14,24 +14,14 @@ public interface AdService {
     Optional<Ad> findAdById(Long id);
     Ad findAdByIdNoOptional(Long id);
     void deleteAd (Ad ad);
-
     AdResponseDTO findById(Long id);
-
     boolean existsById(Long id);
-
     List<AdResponseDTO> findAllByUser(String username);
-
-    List<AdResponseDTO> findAllByCategoryId(Long id);
-
     List<AdResponseDTO> listAdsByPageAndCategory(Integer page, Long id);
-
     int getTotalPages(Long categoryId);
-    List<Ad> findAllByUserID(UUID uuid);
     List<Ad> findAllByUsername(String username);
     void updateAd(List<Ad> ad, Boolean cond);
     List<Ad> getHiddenAds(User user);
-    boolean isHidden(Ad ad);
     List<AdResponseDTO> searchAds(String search);
-
     boolean checkIfAdExists(User user, AdDTO adDTO);
 }

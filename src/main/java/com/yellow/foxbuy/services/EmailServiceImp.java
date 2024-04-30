@@ -96,7 +96,6 @@ public class EmailServiceImp implements EmailService {
         sendSimpleMessage(ad.getUser().getEmail(), ad.getTitle(), message1);
     }
 
-    // method to send email to user(s) who has specific watchdog(s)
     @Override
     public void sendEmailWithWatchdogToUser(List<String> userEmails) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();

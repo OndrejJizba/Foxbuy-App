@@ -2,7 +2,6 @@ package com.yellow.foxbuy.controllers;
 
 import com.yellow.foxbuy.config.SecurityConfig;
 import com.yellow.foxbuy.models.DTOs.*;
-import com.yellow.foxbuy.models.Rating;
 import com.yellow.foxbuy.models.User;
 import com.yellow.foxbuy.services.*;
 import com.yellow.foxbuy.utils.JwtUtil;

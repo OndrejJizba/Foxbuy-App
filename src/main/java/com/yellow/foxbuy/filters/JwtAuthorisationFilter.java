@@ -56,9 +56,6 @@ public class JwtAuthorisationFilter extends OncePerRequestFilter {
             body.put("errorMessage", e.getLocalizedMessage());
             final ObjectMapper mapper = new ObjectMapper();
             mapper.writeValue(response.getOutputStream(), body);
-            //filterChain.doFilter(request, response);
-            //NOT RECOMMENDED to stop filterChain.doFilter(request, response)
-            //we have unhandled AccessDeniedException
             return;
 
         }

@@ -1,13 +1,10 @@
 package com.yellow.foxbuy.services;
 
-import com.yellow.foxbuy.models.Ad;
 import com.yellow.foxbuy.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.*;
 

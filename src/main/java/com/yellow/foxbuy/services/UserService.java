@@ -5,7 +5,6 @@ import com.yellow.foxbuy.models.DTOs.UserDetailsResponseDTO;
 import com.yellow.foxbuy.models.DTOs.UserListResponseDTO;
 import com.yellow.foxbuy.models.DTOs.CustomerDTO;
 import com.yellow.foxbuy.models.User;
-import org.springframework.security.core.Authentication;
 
 import java.util.List;
 import java.util.Optional;
